@@ -5,7 +5,6 @@ var Chatty = (function(chatty) {
     var xml = new XMLHttpRequest();
     xml.addEventListener("load",function(){
       data = JSON.parse(xml.responseText)
-      console.dir(data)
       for (i in data) {
         chatty.print(data[i])
       }
