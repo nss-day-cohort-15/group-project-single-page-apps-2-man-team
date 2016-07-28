@@ -13,39 +13,48 @@
                 <div class="row">
                     <div class="navbar-form">
 
-                      <div class="col-sm-offset-1">
-                        <div class="navbar-header">
-                            <a href="#">
-                                <h2>Chatty!</h2>
-                            </a>
+                        <div class="col-sm-offset-1">
+                            <div class="navbar-header">
+                                <a href="#">
+                                    <h2>Chatty!</h2>
+                                </a>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" id="chat-name" class="form-control" placeholder="Name">
+                                <input type="text" id="chat-input" class="form-control" placeholder="Message...">
+                                <button type="submit" class="btn btn-default" id="clear">Clear Message Board</button>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <input type="text" id="chat-input" class="form-control" placeholder="Search">
-                            <button type="submit" class="btn btn-default" id="clear">Clear Message Board</button>
-                        </div>
-                      </div>
-                    </div> <!-- navbar-form -->
-                </div> <!-- row -->
+                    </div>
+                    <!-- navbar-form -->
+                </div>
+                <!-- row -->
 
                 <div class="row">
                     <div class="checkbox col-sm-offset-2">
                         <label><input class="checkbox-inline" type="checkbox" value="">Dark theme</label>
                         <label><input class="checkbox-inline" type="checkbox" value="">Large text</label>
                     </div>
-                </div> <!-- checkbox -->
-            </div> <!-- container -->
+                </div>
+                <!-- checkbox -->
+            </div>
+            <!-- container -->
         </nav>
         <div class="container">
             <h3>Messages:</h3>
             <div class="row">
                 <div class="col-sm-offset-1 col-sm-10 chat-window">
-                    <h1>MESSAGES GO HERE</h1>
+                    <table class="table table-striped table-hover">
+                        <tbody>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
 
-        <script src="xml.js"></script>
+        <script src="main.js"></script>
         <script src="messages.js"></script>
         <script src="delete.js"></script>
+
     </body>
 </html>

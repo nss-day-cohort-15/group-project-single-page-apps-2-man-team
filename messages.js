@@ -1,47 +1,51 @@
 var Chatty = (function(chatty) {
-  var output = document.querySelector(".chat-window")
-  // Print a provided argument to the bottom of the messages window with a delete button
-  chatty.print = function(messages) {
-    chatty.clear();
-    messages.forEach(function(i) {
-      output.innerHTML += `
-        <div>
-          ${i} <button type="button" class="btn btn-xs btn-danger">Delete</button>
-        </div>
-        `
+  var privateAry = [];
+
+
+  //function to print to DOM and add to privateAry
+  chatty.print = function(id) {
+
+      var msgAry = chatty.getPrivateAry();
+
+      var noMessages = document.querySelector('tr.danger');
+
+      if(noMessages){
+         id.removeChild(document.querySelector('tr.danger'));
+      }
+
+      id.innerHTML = "";
+
+      msgAry.forEach(function(obj, index){
+        id.innerHTML += `
+          <tr id="msg-${index}">
+              <td>${obj.userId ? obj.userId : 'GuestUser'}:</td>
+              <td>${obj.message}</td>
+              <td><button type="button" class="btn btn-xs btn-danger">Delete</button></td>
+          </tr>
+          `;
       })
+
+      document.querySelectorAll('.btn-danger').forEach(e => e.addEventListener("click", chatty.deleter));
   }
-  // Function to clear the messages window
-  chatty.clear = function() {
-    output.innerHTML = "";
-    document.getElementById("clear").disabled = true;
-  }
-  clear.addEventListener("click",chatty.clear)
-  // Function to clear a specific line as specified by the delete button
-  chatty.deleter = function() {
-    var e = event.target
-    var messages = chatty.getMessages()
-    for (i in messages) {
-      if (messages[i] == e.previousSibling.textContent) {
-        console.log(i)
-      }
-    }
-    console.dir(e.previousSibling.textContent)
-    for (i in e.classList) {
-      if (e.classList[i] == "btn-danger") {
-        e.parentElement.parentElement.removeChild(e.parentElement)
-      }
-    }
-  }
-  document.addEventListener("click",chatty.deleter)
+
+
+
   // Function to add user input to the DOM on an enter key event
-  chatty.adder = function(){
+  adder = function(){
+    var message = document.querySelector("#chat-input").value;
+    var name = document.querySelector("#chat-name").value;
+    var obj = {'userId': name, 'message' : message};
+
+
     if (event.keyCode === 13) {
-      chatty.addMessage(document.querySelector(".form-control").value);
-      document.querySelector(".form-control").value = "";
+      chatty.pushPrivateAry(obj);
+      chatty.print(document.querySelector('tbody'));
+      document.querySelector("#chat-input").value = "";
     }
   }
-  document.querySelector(".form-control").addEventListener("keydown",chatty.adder)
+
+  document.querySelector('#chat-name').addEventListener('keydown', adder);
+  document.querySelector('#chat-input').addEventListener('keydown', adder);
 
   return chatty
 })(Chatty || {})
