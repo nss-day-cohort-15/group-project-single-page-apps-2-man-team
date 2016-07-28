@@ -50,9 +50,24 @@ var Chatty = (function(chatty) {
   document.querySelector('#chat-name').addEventListener('keydown', adder);
   document.querySelector('#chat-input').addEventListener('keydown', adder);
   document.querySelector('#change-text').addEventListener('click',textToggle);
+  document.querySelector('#change-theme').addEventListener('click',changeTheme);
+
 
   function textToggle() {
-    document.querySelector('#container').classList.toggle('txtLrg')
+    toggleClass('#container','txtLrg');
+  }
+
+  function changeTheme() {
+    [
+     ['body','inverse'],
+     ['table','table-inverse'],
+     ['nav','navbar-inverse'],
+     ['nav','navbar-default']
+   ].forEach(e => toggleClass(e[0],e[1]));
+  }
+
+  function toggleClass(selector, toggleClass){
+    document.querySelector(selector).classList.toggle(toggleClass);
   }
 
   return chatty
