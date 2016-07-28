@@ -2,7 +2,6 @@
 var Chatty = (function(chatty) {
     var data = [];
     var table = document.querySelector("tbody");
-    var privateAry = [];
     var xhrLength = 0;
 
     // Load JSON data on load
