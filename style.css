@@ -68,3 +68,7 @@ body class="inverse"
 nav class= "nav-inverse"
 table class="table-inverse"
 */
+
+.txtLrg {
+  font-size: 1.6em;
+}
