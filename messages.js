@@ -1,36 +1,45 @@
 var Chatty = (function(chatty) {
-  var output = document.querySelector(".chat-window")
-  // Print a provided argument to the bottom of the messages window with a delete button
-  chatty.print = function(text) {
-    output.innerHTML += `
-      <div>
-        ${text} <button type="button" class="btn btn-xs btn-danger">Delete</button>
-      </div>
-      `
-  }
-  // Function to clear the messages window
-  chatty.clear = function() {
-    output.innerHTML = ""
-  }
-  clear.addEventListener("click",chatty.clear)
-  // Function to clear a specific line as specified by the delete button
-  chatty.deleter = function() {
-    var e = event.target
-    for (i in e.classList) {
-      if (e.classList[i] == "btn-danger") {
-        e.parentElement.parentElement.removeChild(e.parentElement)
+  var privateAry = [];
+
+
+  //function to print to DOM and add to privateAry
+  chatty.print = function(id, message, userId) {
+      var noMessages = document.querySelector('tr.danger');
+
+      if(noMessages){
+         id.removeChild(document.querySelector('tr.danger'));
       }
-    }
+
+      id.innerHTML += `
+        <tr>
+            <td>${userId ? userId : 'GuestUser'}:</td>
+            <td>${message}</td>
+            <td><button type="button" class="btn btn-xs btn-danger">Delete</button></td>
+        </tr>
+        `;
+
+      privateAry.push({'userId': userId, 'message' : message});
+
+      document.querySelectorAll('.btn-danger').forEach(e => e.addEventListener("click", chatty.deleter));
   }
-  document.addEventListener("click",chatty.deleter)
+
+  chatty.messageAry = function(){
+    return privateAry;
+  }
+
   // Function to add user input to the DOM on an enter key event
-  chatty.adder = function(){
+  adder = function(){
+    var message = document.querySelector("#chat-input").value;
+    var name = document.querySelector("#chat-name").value;
+
     if (event.keyCode === 13) {
-      chatty.print(document.querySelector(".form-control").value);
-      document.querySelector(".form-control").value = "";
+      chatty.print(document.querySelector('tbody'), message, name);
+      document.querySelector("#chat-input").value = "";
     }
   }
-  document.querySelector(".form-control").addEventListener("keydown",chatty.adder)
+
+  document.querySelector('#chat-name').addEventListener('keydown', adder);
+  document.querySelector('#chat-input').addEventListener('keydown', adder);
 
   return chatty
 })(Chatty || {})

@@ -18,5 +18,9 @@ input.form-control {
 }
 
 #chat-input {
-  width: 70%;
+  width: 55%;
+}
+
+td:first-child {
+  font-weight: 900;
 }
