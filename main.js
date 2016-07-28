@@ -26,6 +26,12 @@ var Chatty = (function(chatty) {
     chatty.splicePrivateAry = function(index){
       data.splice(index, 1);
     }
+    chatty.editPrivateAry = function(index,newObj){
+      data.splice(index,1,newObj)
+    }
+    chatty.emptyPrivateAry = function(){
+      data.splice(0)
+    }
 
     return chatty
 })(Chatty || {})
