@@ -20,15 +20,16 @@ var Chatty = (function(chatty) {
           <tr id="msg-${index}">
               <td>${obj.userId ? obj.userId : 'GuestUser'}:</td>
               <td>${obj.message}</td>
+              <td><button type="button" class="btn btn-xs btn-warning">Edit</button></td>
               <td><button type="button" class="btn btn-xs btn-danger">Delete</button></td>
           </tr>
           `;
       })
 
       document.querySelectorAll('.btn-danger').forEach(e => e.addEventListener("click", chatty.deleter));
-  }
+      document.querySelectorAll('.btn-warning').forEach(e => e.addEventListener("click", chatty.editer));
 
-
+      }
 
   // Function to add user input to the DOM on an enter key event
   adder = function(){
