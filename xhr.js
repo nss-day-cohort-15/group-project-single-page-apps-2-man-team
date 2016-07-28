@@ -8,7 +8,7 @@ var Chatty = (function(chatty) {
       var xhr = new XMLHttpRequest()
       xhr.addEventListener("load",function(){
         data = JSON.parse(xhr.responseText);
-        data.forEach(e => chatty.print(table, e.message, e.userId));
+        data.forEach(obj => chatty.print(table, obj));
       })
       xhr.open("GET","messages.json")
       xhr.send()

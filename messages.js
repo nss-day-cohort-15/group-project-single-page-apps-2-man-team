@@ -3,7 +3,7 @@ var Chatty = (function(chatty) {
 
 
   //function to print to DOM and add to privateAry
-  chatty.print = function(id, message, userId) {
+  chatty.print = function(id, obj) {
       var noMessages = document.querySelector('tr.danger');
 
       if(noMessages){
@@ -12,13 +12,14 @@ var Chatty = (function(chatty) {
 
       id.innerHTML += `
         <tr>
-            <td>${userId ? userId : 'GuestUser'}:</td>
-            <td>${message}</td>
+            <td>${obj.userId ? obj.userId : 'GuestUser'}:</td>
+            <td>${obj.message}</td>
             <td><button type="button" class="btn btn-xs btn-danger">Delete</button></td>
         </tr>
         `;
 
-      privateAry.push({'userId': userId, 'message' : message});
+        privateAry.push({'userId': obj.userId, 'message' : obj.message});
+
 
       document.querySelectorAll('.btn-danger').forEach(e => e.addEventListener("click", chatty.deleter));
   }
@@ -31,9 +32,10 @@ var Chatty = (function(chatty) {
   adder = function(){
     var message = document.querySelector("#chat-input").value;
     var name = document.querySelector("#chat-name").value;
+    var obj = {'userId': name, 'message' : message};
 
     if (event.keyCode === 13) {
-      chatty.print(document.querySelector('tbody'), message, name);
+      chatty.print(document.querySelector('tbody'), obj);
       document.querySelector("#chat-input").value = "";
     }
   }
