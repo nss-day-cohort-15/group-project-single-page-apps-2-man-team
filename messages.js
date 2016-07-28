@@ -1,7 +1,6 @@
 var Chatty = (function(chatty) {
   var privateAry = [];
 
-
   //function to print to DOM and add to privateAry
   chatty.print = function(id) {
 
@@ -28,7 +27,6 @@ var Chatty = (function(chatty) {
 
       document.querySelectorAll('.btn-danger').forEach(e => e.addEventListener("click", chatty.deleter));
       document.querySelectorAll('.btn-warning').forEach(e => e.addEventListener("click", chatty.editer));
-
       }
 
   // Function to add user input to the DOM on an enter key event
@@ -47,6 +45,11 @@ var Chatty = (function(chatty) {
 
   document.querySelector('#chat-name').addEventListener('keydown', adder);
   document.querySelector('#chat-input').addEventListener('keydown', adder);
+  document.querySelector('#change-text').addEventListener('click',textToggle);
+
+  function textToggle() {
+    document.querySelector('#container').classList.toggle('txtLrg')
+  }
 
   return chatty
 })(Chatty || {})

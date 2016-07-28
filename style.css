@@ -24,3 +24,7 @@ input.form-control {
 td:first-child {
   font-weight: 900;
 }
+
+.txtLrg {
+  font-size: 1.6em;
+}
