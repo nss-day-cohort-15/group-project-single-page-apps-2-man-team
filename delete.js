@@ -3,6 +3,7 @@ var Chatty = (function(chatty){
 
   // Function to clear the messages window
   function clear() {
+    chatty.emptyPrivateAry();
     document.querySelector("tbody").innerHTML = `<tr class="danger"><td style="text-align: center;">NO MESSAGES</td></tr>`
   }
 
