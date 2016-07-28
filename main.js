@@ -1,22 +1,31 @@
 
 var Chatty = (function(chatty) {
-    var data = {};
+    var data = [];
     var table = document.querySelector("tbody");
+    var privateAry = [];
 
     // Load JSON data on load
     chatty.loadData = (function() {
       var xhr = new XMLHttpRequest()
       xhr.addEventListener("load",function(){
         data = JSON.parse(xhr.responseText);
-        data.forEach(obj => chatty.print(table, obj));
+        chatty.print(table);
       })
+
       xhr.open("GET","messages.json")
       xhr.send()
     })()
 
-    // Function to return JSON data
-    chatty.getData = function(){
+    chatty.getPrivateAry = function(){
       return data;
+    }
+
+    chatty.pushPrivateAry = function(obj){
+      data.push(obj);
+    }
+
+    chatty.splicePrivateAry = function(index){
+      data.splice(index, 1);
     }
 
     return chatty
