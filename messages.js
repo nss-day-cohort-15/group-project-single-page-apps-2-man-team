@@ -15,6 +15,15 @@ var Chatty = (function(chatty) {
       id.innerHTML = "";
 
       msgAry.forEach(function(obj, index){
+        if (index < chatty.getXhrLength()) {
+          id.innerHTML += `
+          <tr id="msg-${index}">
+              <td>${obj.userId ? obj.userId : 'GuestUser'}:</td>
+              <td>${obj.message}</td>
+              <td></td>
+              <td></td>
+          </tr>`
+        } else {
         id.innerHTML += `
           <tr id="msg-${index}">
               <td>${obj.userId ? obj.userId : 'GuestUser'}:</td>
@@ -23,7 +32,7 @@ var Chatty = (function(chatty) {
               <td><button type="button" class="btn btn-xs btn-danger">Delete</button></td>
           </tr>
           `;
-      })
+      }})
 
       if(!msgAry.length){
         chatty.clear();
