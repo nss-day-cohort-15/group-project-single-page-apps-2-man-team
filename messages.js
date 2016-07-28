@@ -1,17 +1,15 @@
 var Chatty = (function(chatty) {
-  var privateAry = [];
-
 
   //function to print to DOM and add to privateAry
   chatty.print = function(id) {
-
-      var msgAry = chatty.getPrivateAry();
 
       var noMessages = document.querySelector('tr.danger');
 
       if(noMessages){
          id.removeChild(document.querySelector('tr.danger'));
       }
+
+      var msgAry = chatty.getPrivateAry();
 
       id.innerHTML = "";
 
@@ -24,6 +22,10 @@ var Chatty = (function(chatty) {
           </tr>
           `;
       })
+
+      if(!msgAry.length){
+        chatty.clear();
+      }
 
       document.querySelectorAll('.btn-danger').forEach(e => e.addEventListener("click", chatty.deleter));
   }

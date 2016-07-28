@@ -2,11 +2,11 @@
 var Chatty = (function(chatty){
 
   // Function to clear the messages window
-  function clear() {
+  chatty.clear = function() {
     document.querySelector("tbody").innerHTML = `<tr class="danger"><td style="text-align: center;">NO MESSAGES</td></tr>`
   }
 
-  document.querySelector('#clear').addEventListener("click", clear);
+  document.querySelector('#clear').addEventListener("click", chatty.clear);
 
   // Function to clear a specific line as specified by the delete button
   chatty.deleter = function(evt) {
