@@ -64,6 +64,11 @@ var Chatty = (function(chatty) {
 
   function textToggle() {
     toggleClass('#container','txtLrg');
+
+    document.querySelectorAll('tr button').forEach(e => e.classList.toggle('btn-xs'));
+    document.querySelectorAll('tr button').forEach(e => e.classList.toggle('btn-lg'));
+
+
   }
 
   function changeTheme() {
