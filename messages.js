@@ -15,7 +15,7 @@ var Chatty = (function(chatty) {
       id.innerHTML = "";
 
       msgAry.forEach(function(obj, index){
-        if (index < chatty.getXhrLength()) {
+        if (msgAry[index].default) {
           id.innerHTML += `
           <tr id="msg-${index}">
               <td>${obj.userId ? obj.userId : 'GuestUser'}:</td>

@@ -1,40 +1,50 @@
 [
     {
         "userId": "Joe",
-        "message": "Now that there is the Tec-9, a crappy spray gun from South Miami."
+        "message": "Now that there is the Tec-9, a crappy spray gun from South Miami.",
+        "default": true
     },
     {
         "userId": "Ryan",
-        "message": "This gun is advertised as the most popular gun in American crime."
+        "message": "This gun is advertised as the most popular gun in American crime.",
+        "default": true
     },
     {
         "userId": "Matt",
-        "message": "Do you believe that shit?"
+        "message": "Do you believe that shit?",
+        "default": true
     },
     {
-        "message": "It actually says that in the little book that comes with it: the most popular gun in American crime."
+        "message": "It actually says that in the little book that comes with it: the most popular gun in American crime.",
+        "default": true
     },
     {
         "userId": "Joe",
-        "message": "Like they're actually proud of that shit."
+        "message": "Like they're actually proud of that shit.",
+        "default": true
     },
     {
         "userId": "Mark",
-        "message": "Now that we know who you are, I know who I am."
+        "message": "Now that we know who you are, I know who I am.",
+        "default": true
     },
     {
         "userId": "Joe",
-        "message": "I'm not a mistake! It all makes sense!"
+        "message": "I'm not a mistake! It all makes sense!",
+        "default": true
     },
     {
         "userId": "Ryan",
-        "message": "In a comic, you know how you can tell who the arch-villain's going to be?"
+        "message": "In a comic, you know how you can tell who the arch-villain's going to be?",
+        "default": true
     },
     {
-        "message": "He's the exact opposite of the hero. And most times they're friends, like you and me!"
+        "message": "He's the exact opposite of the hero. And most times they're friends, like you and me!",
+        "default": true
     },
     {
         "userId": "Ryan",
-        "message": "I should've known way back when... You know why, David? Because of the kids. They called me Mr Glass."
+        "message": "I should've known way back when... You know why, David? Because of the kids. They called me Mr Glass.",
+        "default": true
     }
 ]
